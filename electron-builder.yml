@@ -18,6 +18,11 @@ extraResources:
   - from: resources
     to: resources
     filter: ["**/*"]
+  # Default sprites/animations/config so a fresh install doesn't require
+  # re-uploading. Seeded into userData on first run (never overwrites user data).
+  - from: seed
+    to: seed
+    filter: ["**/*"]
 win:
   icon: build/icon.png
   target:

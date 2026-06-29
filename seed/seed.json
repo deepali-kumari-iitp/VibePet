@@ -1,0 +1,66 @@
+{
+  "settings": {
+    "sprites.config": {
+      "clips": {
+        "idle": {
+          "fileName": "idle.png",
+          "fileUrl": "sprite://s/idle.png",
+          "size": 88938,
+          "imageWidth": 2304,
+          "imageHeight": 256,
+          "frameWidth": 256,
+          "frameHeight": 256,
+          "rows": 1,
+          "columns": 9,
+          "frameCount": 9,
+          "fps": 8
+        }
+      },
+      "atlas": {
+        "fileName": "atlas.png",
+        "fileUrl": "sprite://s/atlas.png",
+        "size": 1245617,
+        "imageWidth": 32768,
+        "imageHeight": 256,
+        "frameWidth": 256,
+        "frameHeight": 256,
+        "rows": 1,
+        "columns": 128,
+        "frameCount": 128,
+        "fps": 8
+      },
+      "ranges": {
+        "sleeping": { "from": 41, "to": 48, "fps": 8 },
+        "sitting": { "from": 89, "to": 96, "fps": 8 },
+        "thinking": { "from": 65, "to": 72, "fps": 8 },
+        "happy": { "from": 25, "to": 40, "fps": 8 },
+        "excited": { "from": 57, "to": 64, "fps": 8 },
+        "drinkingCoffee": { "from": 49, "to": 56, "fps": 8 },
+        "readingDocs": { "from": 73, "to": 88, "fps": 8 },
+        "lookingAround": { "from": 25, "to": 40, "fps": 8 },
+        "confused": { "from": 65, "to": 71, "fps": 8 },
+        "running": { "from": 105, "to": 112, "fps": 8 },
+        "walking": { "from": 105, "to": 112, "fps": 8 },
+        "greeting": { "from": 1, "to": 8, "fps": 8 },
+        "celebrating": { "from": 57, "to": 64, "fps": 8 },
+        "coding": { "from": 12, "to": 24, "fps": 12 }
+      },
+      "baseImage": {
+        "fileName": "base-1.png",
+        "fileUrl": "sprite://s/base-1.png"
+      }
+    },
+    "game.assets": {
+      "breadCatch.bread": {
+        "fileName": "game-breadCatch-bread-1.png",
+        "fileUrl": "sprite://s/game-breadCatch-bread-1.png",
+        "size": 9931,
+        "imageWidth": 128,
+        "imageHeight": 128,
+        "frames": 1,
+        "fps": 8
+      }
+    },
+    "openrouter.model": "google/gemma-4-31b-it:free"
+  }
+}

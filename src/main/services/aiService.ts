@@ -2,6 +2,7 @@ import type { AIConfig, AICompletionRequest, PromptCoachResult } from '@shared/t
 import { OpenRouterClient, PromptCoach } from '../ai'
 import type { SecureStorageAdapter } from '../platform'
 import type { SettingsRepository } from '../database/repositories/settingsRepository'
+import { getEnv } from './env'
 
 const KEY_API = 'openrouter.apiKey'
 const KEY_MODEL = 'openrouter.model'
@@ -27,8 +28,13 @@ export class AIService {
     private readonly secureStorage: SecureStorageAdapter
   ) {}
 
+  /** Stored key wins; falls back to OPENROUTER_API_KEY from the bundled .env. */
+  private async getApiKey(): Promise<string> {
+    return (await this.secureStorage.get(KEY_API)) || getEnv('OPENROUTER_API_KEY')
+  }
+
   async resolveConfig(overrides?: Partial<AIConfig>): Promise<AIConfig> {
-    const apiKey = overrides?.apiKey ?? (await this.secureStorage.get(KEY_API)) ?? ''
+    const apiKey = overrides?.apiKey ?? (await this.getApiKey())
     if (!apiKey) throw new Error('No OpenRouter API key configured.')
     return {
       apiKey,
@@ -62,8 +68,7 @@ export class AIService {
   }
 
   async hasApiKey(): Promise<boolean> {
-    const key = await this.secureStorage.get(KEY_API)
-    return !!key
+    return !!(await this.getApiKey())
   }
 }
 

@@ -12,6 +12,7 @@ import { GameAssetService } from './services/gameAssetService'
 import { GameService } from './services/gameService'
 import { PromptBoostService } from './services/promptBoostService'
 import { PromptWatchService } from './services/promptWatchService'
+import { seedDefaults } from './services/seedService'
 import { SpriteService } from './services/spriteService'
 import { SupabaseService } from './services/supabaseService'
 import { VisibilityService } from './services/visibilityService'
@@ -73,6 +74,10 @@ function bootstrap(): void {
     registerSpriteProtocol()
 
     const repos = getRepositories()
+
+    // Pre-fill bundled sprites/animations/config on first run so a fresh install
+    // (on any machine) doesn't require re-uploading. Never overwrites user data.
+    seedDefaults(repos.settings)
 
     platform = createPlatformServices({
       read: (key) => repos.settings.get(key),
