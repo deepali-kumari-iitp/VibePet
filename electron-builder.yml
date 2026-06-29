@@ -22,7 +22,7 @@ win:
   icon: build/icon.png
   target:
     - nsis
-  artifactName: ${productName}-${version}-setup.${ext}
+  artifactName: ${productName}-${version}-${arch}-setup.${ext}
 mac:
   category: public.app-category.developer-tools
   icon: build/icon.png
